@@ -1,0 +1,7 @@
+name: alimama_controlnet
+
+parameters:
+  n_steps: 28
+  guidance_scale: 7.0
+  controlnet_conditioning_scale: 0.95
+  control_net_path: 

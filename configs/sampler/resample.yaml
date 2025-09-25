@@ -1,0 +1,72 @@
+name: resample
+
+parameters:
+  n_steps: 50
+  use_dps_cond: True
+  frequency: 15
+  max_iters: 200
+  sigma_scale: 40.0
+  lr_pixel: 1e-2
+  lr_latent: 5e-3
+
+
+
+context_parameters:
+  task_name:
+
+    latent_inpainting:
+        n_steps: 100
+        use_dps_cond: True
+        frequency: 15
+        max_iters: 200
+        sigma_scale: 40.0
+        lr_pixel: 1e-2
+        lr_latent: 5e-3
+
+    latent_half:
+        use_dps_cond: True
+        frequency: 5
+        max_iters: 200
+        sigma_scale: 40.0
+        lr_pixel: 1e-2
+        lr_latent: 5e-3
+
+    latent_strip:
+        use_dps_cond: True
+        frequency: 5
+        max_iters: 200
+        sigma_scale: 40.0
+        lr_pixel: 1e-2
+        lr_latent: 5e-3
+
+    latent_center:
+        use_dps_cond: True
+        frequency: 5
+        max_iters: 200
+        sigma_scale: 40.0
+        lr_pixel: 1e-2
+        lr_latent: 5e-3
+
+    latent_bottom:
+      use_dps_cond: True
+      frequency: 5
+      max_iters: 200
+      sigma_scale: 40.0
+      lr_pixel: 1e-2
+      lr_latent: 5e-3
+
+    latent_top:
+      use_dps_cond: True
+      frequency: 5
+      max_iters: 200
+      sigma_scale: 40.0
+      lr_pixel: 1e-2
+      lr_latent: 5e-3
+
+    mask_inpainting:
+      use_dps_cond: True
+      frequency: 5
+      max_iters: 200
+      sigma_scale: 40.0
+      lr_pixel: 1e-2
+      lr_latent: 5e-3

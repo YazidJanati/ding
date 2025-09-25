@@ -1,0 +1,90 @@
+name: daps
+
+parameters:
+    n_steps: 50  # equivalent to n_annealing steps DAPS
+    n_diffusion_steps: 2  # number of steps to estimate x_0t
+    # ---
+    tau: 1e-2
+    # --- mcmc hyperparams
+    mcmc_sampler: "Langevin"
+    n_mcmc_steps: 20
+    lr: 1.11e-6
+    min_ratio: 0.43
+    mcmc_sampler_extra_params: {}
+
+
+
+context_parameters:
+  task_name:
+    # hyper params for n_steps=50
+    latent_inpainting:
+      n_steps: 50
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 5.e-6
+      min_ratio: 0.43
+
+    # hyper params for n_steps=50
+    latent_half:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 2e-5
+      min_ratio: 0.43
+
+    latent_strip:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 2e-5
+      min_ratio: 0.43
+
+    latent_center:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 9e-6
+      min_ratio: 0.43
+
+    latent_bottom:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 2e-5
+      min_ratio: 0.43
+
+    latent_top:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 3e-5
+      min_ratio: 0.43
+
+    mask_inpainting:
+      n_diffusion_steps: 2
+      # ---
+      tau: 1e-2
+      # --- mcmc hyperparams
+      mcmc_sampler: "Langevin"
+      n_mcmc_steps: 20
+      lr: 3e-5
+      min_ratio: 0.43

@@ -1,0 +1,61 @@
+name: reddiff
+
+parameters:
+  n_steps: 50
+  lr: 0.1
+  sigma_x0: 1e-3  # jitter on x0_pred
+  grad_term_weight: 0.25
+  obs_weight: 1.0
+  denoise_weight_mode: "linear" # {'linear','sqrt','square','log','trunc_linear','power2over3','const'}
+  show_every: 20
+
+
+context_parameters:
+  task_name:
+    # for n_steps=50
+    latent_half:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"
+
+    # for n_steps=50
+    latent_strip:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"
+
+    # for n_steps=50
+    latent_center:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"
+
+    # for n_steps=50
+    latent_bottom:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"
+
+    # for n_steps=50
+    latent_top:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"
+
+    # for n_steps=50
+    mask_inpainting:
+      lr: 0.2
+      sigma_x0: 1e-3
+      grad_term_weight: 0.25
+      obs_weight: 1.0
+      denoise_weight_mode: "const"

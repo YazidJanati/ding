@@ -1,0 +1,35 @@
+name: pnp_flow
+
+parameters:
+  n_steps: 50
+  lr: 1e-1
+  lr_style: "constant"
+  alpha: 1.0
+  n_samples: 5
+
+
+context_parameters:
+  task_name:
+    latent_half:
+      lr: 8e-1
+      lr_style: "constant"
+
+    latent_strip:
+      lr: 8e-1
+      lr_style: "constant"
+
+    latent_center:
+      lr: 8e-1
+      lr_style: "constant"
+
+    latent_top:
+      lr: 1.3
+      lr_style: "constant"
+
+    latent_bottom:
+      lr: 1.4
+      lr_style: "constant"
+
+    mask_inpainting:
+      lr: 1.5
+      lr_style: "constant"

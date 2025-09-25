@@ -1,0 +1,50 @@
+name: psld
+
+parameters:
+  n_steps: 50
+  gamma: 0.1
+  omega: 0.1
+  eta: 1.0
+
+
+context_parameters:
+  task_name:
+
+    # # this work for n_steps: 100
+    # latent_half:
+    #   gamma: 0.1
+    #   omega: 0.5
+    #   eta: 1.0
+
+    # haven't manage to make it work with low computational budget (n_steps=50)
+    # this is the best config
+    latent_half:
+      gamma: 0.01
+      omega: 0.01
+      eta: 1.0
+
+    # this work for n_steps: 200
+    latent_strip:
+      gamma: 0.1
+      omega: 0.5
+      eta: 1.0
+
+    latent_center:
+      gamma: 0.05
+      omega: 0.1
+      eta: 1.0
+
+    latent_top:
+      gamma: 0.01
+      omega: 0.01
+      eta: 1.0
+
+    latent_bottom:
+      gamma: 0.01
+      omega: 0.01
+      eta: 1.0
+
+    mask_inpainting:
+      gamma: 0.1
+      omega: 0.5
+      eta: 1.0

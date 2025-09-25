@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=65.5"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "ding"
+description = "ding algorithm for fast training-free inpainting using pre-trained diffusion models."
+version = "0.0.0"
+
+dependencies = [
+    "torch",
+    "torchvision",
+    "transformers",
+    "diffusers[torch]",
+    "lpips",
+    "Pillow",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "omegaconf",
+    "tqdm",
+    "PyYAML",
+    "einops",
+    "lightning",
+    "taming-transformers-rom1504",
+    "hydra-core",
+    "pandas",
+    "pytorch_fid",
+    "sentencepiece",
+     "protobuf",
+]

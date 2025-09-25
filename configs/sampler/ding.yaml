@@ -1,0 +1,5 @@
+name: ding
+
+parameters:
+  n_steps: 28
+  eta_type: square

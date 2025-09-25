@@ -1,0 +1,43 @@
+name: flow_chef
+
+parameters:
+  n_steps: 50
+  step_size: 0.9
+  dc_iters: 10
+  latent: null
+  show_every: null
+  show_intermediate: True
+
+
+context_parameters:
+  task_name:
+
+    latent_half:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False
+
+    latent_strip:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False
+
+    latent_center:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False
+
+    latent_top:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False
+
+    latent_bottom:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False
+
+    mask_inpainting:
+      step_size: 0.9
+      dc_iters: 10
+      show_intermediate: False

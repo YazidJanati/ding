@@ -1,0 +1,4 @@
+name: delayed_ding
+
+parameters:
+  n_steps: 100

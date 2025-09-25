@@ -1,0 +1,10 @@
+task: mask_inpainting
+
+# parameters
+# NOTE the mask must operate on the pixel space
+path_mask: null
+
+# the down scaling of the auto-encoder
+latent_factor: 8
+
+is_latent: True

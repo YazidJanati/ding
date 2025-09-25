@@ -1,0 +1,49 @@
+name: flow_dps
+
+parameters:
+  n_steps: 50
+  step_size: 15
+  dc_iters: 3
+  latent: null
+  show_every: null
+  show_intermediate: True
+
+
+context_parameters:
+  task_name:
+  
+    latent_half:
+      step_size: 20
+      dc_iters: 3
+      latent: null
+      show_intermediate: False
+
+    latent_strip:
+      step_size: 10
+      dc_iters: 3
+      latent: null
+      show_intermediate: False
+
+    latent_center:
+      step_size: 10
+      dc_iters: 3
+      latent: null
+      show_intermediate: False
+
+    latent_top:
+      step_size: 10
+      dc_iters: 3
+      latent: null
+      show_intermediate: False
+
+    latent_bottom:
+      step_size: 10
+      dc_iters: 3
+      latent: null
+      show_intermediate: False
+
+    mask_inpainting:
+      step_size: 10
+      dc_iters: 3
+      latent: null
+      show_intermediate: False

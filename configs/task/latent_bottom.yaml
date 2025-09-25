@@ -1,0 +1,10 @@
+task: box_inpainting
+
+# parameters
+
+# for 512
+# box: [32, 64, 0, 64]
+
+# for 768
+box: [48, 96, 0, 96]
+is_latent: true
