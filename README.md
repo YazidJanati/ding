@@ -1,96 +1,132 @@
-# Efficient Zero-shot Inpainting with Decoupled Diffusion Guidance
+# Efficient Zero-Shot Inpainting with Decoupled Diffusion Guidance
 
-Ding algorithm for fast training-free inpainting using pre-trained diffusion models.
+This repository contains the DING algorithm for fast, training-free image inpainting with pre-trained diffusion models.
 
-## Setups the repository
+Paper: [Efficient Zero-Shot Inpainting with Decoupled Diffusion Guidance](https://arxiv.org/abs/2512.18365)
 
-Add the the following two files to
 
-1. Install the code in editable mode.
+**NOTE:** We have released a modular python package that extends this work to additional models and datasets, see the [project webpage](https://ahmedgh970.github.io/ding-editor/) and package [ding-editor](https://github.com/ahmedgh970/ding-editor).
+
+
+## Setup
+
+1. Install the package in editable mode:
+
 ```bash
 pip install -e .
 ```
 
-Details about the dependencies can be in ``pyproject.toml``
+Dependency details are available in [`pyproject.toml`](pyproject.toml).
 
-2. then put the in ``src/local_paths.py`` file, the absolute paths to the project (hint use the command ``pwd``)
+2. Create `src/local_paths.py` and set the absolute path to this repository. You can use `pwd` to get the path:
 
 ```python
 from pathlib import Path
 
-REPO_PATH = Path("/path/to/repository")     # <--- change it with the absolute path of the folder
+REPO_PATH = Path("/path/to/repository")  # Replace with the absolute path to this repository.
 ```
 
+## Downloading Models
 
-## Downloading models
-
-- For downloading SD3 models run
+Download the Stable Diffusion 3 models:
 
 ```bash
-# for 3.5 medium
+# Stable Diffusion 3.5 Medium
 hf download stabilityai/stable-diffusion-3.5-medium
 
-# for 3 medium
+# Stable Diffusion 3 Medium
 hf download stabilityai/stable-diffusion-3-medium-diffusers
 ```
 
-- To download the Inpainting Controlnet, run
+Download the inpainting ControlNet:
+
 ```bash
 hf download alimama-creative/SD3-Controlnet-Inpainting
 ```
 
 ## Datasets
 
-We provide details about the dataset in the folder ``data``, namely
-- description of dataset
+Dataset details are provided in the [`data`](data) folder, including:
+
+- dataset descriptions
 - preprocessing steps and scripts
 
+## Running Demos
 
-## Running demos
+Run the default demo with:
 
-The can be run using the script, by
 ```bash
 python3 runner.py
 ```
 
-the behavior of the script can be adapted by changing the hyperparmeters in configuration files ``config/runner.yaml``.
+The script behavior can be adapted by changing the hyperparameters in [`config/runner.yaml`](config/runner.yaml).
 
-Running code with different image/prompt
+Run the demo with a custom image and prompt:
+
 ```bash
 python3 runner.py \
-  im_abs_path=assets/0847.png\
+  im_abs_path=assets/0847.png \
   conditioning.ctx="A beautifully preserved vintage black car with the license plate 'AX 7681' parked on a charming street, in front of a shop decorated with Welsh dragon flags and a Dutch flag."
 ```
 
-Providing a custom mask
+Run the demo with a custom mask:
+
 ```bash
 python3 runner.py \
   im_abs_path=assets/000000000001.jpg \
-  conditioning.ctx="a square cake with orange frosting on a wooden plate"
+  conditioning.ctx="a square cake with orange frosting on a wooden plate" \
   task.path_mask=assets/000000000001.pt
 ```
 
-
 ## Evaluation
 
-The ``runner.py`` script provides per sample metrics, namely, 
-  - LPIPS
-  - cPSNR
-  - runtime
-  - GPU memory consumption
+The `runner.py` script reports per-sample metrics, including:
 
-For CLIP-Score, however ensure,
+- LPIPS
+- cPSNR
+- runtime
+- GPU memory consumption
 
-1. Download the CLIP model using
+To compute CLIP-Score:
+
+1. Download the CLIP model:
+
 ```bash
 hf download openai/clip-vit-large-patch14
 ```
 
-2. and run the script with ``compute_clip=True``
+2. Run the script with `compute_clip=True`.
 
-To get distribution-wise metrics, run ``eval.py``
+To compute distribution-level metrics, run `eval.py`:
+
 ```bash
 python3 eval.py \
-  eval.path_ref_stats_pfid="path/to/ref/stats/fid" \
+  eval.path_ref_stats_pfid="path/to/ref/stats/pfid" \
   eval.path_ref_stats_fid="path/to/ref/stats/fid"
+```
+
+
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{moufad2026ding,
+  title={Efficient Zero-Shot Inpainting with Decoupled Diffusion Guidance},
+  author={Moufad, Badr and Shouraki, Navid Bagheri and
+          Durmus, Alain Oliviero and Hirtz, Thomas and
+          Moulines, Eric and Olsson, Jimmy and Janati, Yazid},
+  journal={ICLR 2026},
+  year={2026}
+}
+
+@article{ghorbel2026ding-editor,
+  title={When Test-Time Guidance Is Enough:
+         Fast Image and Video Editing with Diffusion Guidance},
+  author={Ghorbel, Ahmed and Moufad, Badr and Shouraki, Navid Bagheri
+          and Durmus, Alain Oliviero and Hirtz, Thomas and
+          Moulines, Eric and Olsson, Jimmy and Janati, Yazid},
+  journal={ICLR 2026, ReALM-GEN Workshop},
+  year={2026}
+}
 ```

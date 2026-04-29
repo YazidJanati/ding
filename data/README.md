@@ -1,57 +1,103 @@
-## Details about the dataset
+## Dataset Details
 
-**About FFHQ**
+This directory contains notes and helper scripts for preparing the datasets used in the project.
 
-FFHQ 1024x1024 dataset downloaded from https://github.com/NVlabs/ffhq-dataset
+## FFHQ
 
-Five subfolders were download: 
-    00000, 01000, 02000, 03000, and 04000,
-which accounts for 5k images
+The FFHQ 1024x1024 dataset was downloaded from the official repository:
+[NVlabs/ffhq-dataset](https://github.com/NVlabs/ffhq-dataset).
 
-- Merge the images in the five folders into on ``ffhq/ìmages``
+Five subfolders were downloaded:
 
+- `00000`
+- `01000`
+- `02000`
+- `03000`
+- `04000`
 
-**About DIV2K**
+Together, these folders contain 5,000 images.
 
-DIV2K dataset downloaded from the official website https://data.vision.ee.ethz.ch/cvl/DIV2K/
+Merge the images from these five folders into:
 
-It comprises two partition
-- train: first 800 images
-- valiation: last 100 images
+```text
+ffhq/images
+```
 
-- Merge The two partition into one ``DIV2K/images``.
+## DIV2K
 
-The captions of the images were generated using BLIP-2 flan-t5-xl with a max token of the caption equal 100 and repetition_penalty equals 1.5
+The DIV2K dataset was downloaded from the official website:
+[DIV2K dataset](https://data.vision.ee.ethz.ch/cvl/DIV2K/).
 
-Use the provided scripts ``generate_captions_div2k.py`` and modify the paths accordingly in the beginning of the scripts.
+It contains two splits:
 
-Beforehand, download the BLIP-2 flan-t5-xl model
+- train: the first 800 images
+- validation: the last 100 images
+
+Merge both splits into:
+
+```text
+DIV2K/images
+```
+
+Image captions were generated with BLIP-2 Flan-T5-XL using the following settings:
+
+- maximum caption length: 100 tokens
+- repetition penalty: 1.5
+
+Before generating captions, download the BLIP-2 Flan-T5-XL model:
+
 ```bash
 hf download Salesforce/blip2-flan-t5-xl
 ```
 
-**About PIE-Bench**
+Then run the provided script:
 
-PIE-Bench was downloaded from https://github.com/cure-lab/PnPInversion
+```bash
+python generate_captions_div2k.py
+```
 
-It comprises 700 images with original prompt, editing prompt, and mask for the part to be edited
+Update the paths at the beginning of `generate_captions_div2k.py` before running it.
 
-The applied preprocessing comprises isolating
-    - images
-    - masks
-    - prompts
-the name of each is the name of the image.
+## PIE-Bench
 
-For some images, e.g. image "924000000009", the provided mask cover the entire image.
-These, which account for 144 of the Bench, were removed which leave 556 images.
+PIE-Bench was downloaded from:
+[cure-lab/PnPInversion](https://github.com/cure-lab/PnPInversion).
 
-Use the provided scripts ``prepare_pie_bench.py`` and modify the paths accordingly in the beginning of the scripts.
+It contains 700 images, each with:
 
-Among others, the scripts will
-- isolate the images for the benchmark in a separate folder
-- create the mask and save them separately
+- an original prompt
+- an editing prompt
+- a mask for the region to edit
 
+The preprocessing step extracts:
 
-## Generate precomputed statistics for FID, and patchwise FID
+- images
+- masks
+- prompts
 
-To pre-compute and save statistics for FID and patch FID, use the provided scripts ``compute_stats.py`` and modify the paths accordingly in the beginning of the scripts
+Each extracted item is named after the corresponding image.
+
+For some images, such as `924000000009`, the provided mask covers the entire image. These cases were removed from the benchmark. In total, 144 images were removed, leaving 556 images.
+
+Run the provided preprocessing script:
+
+```bash
+python prepare_pie_bench.py
+```
+
+Update the paths at the beginning of `prepare_pie_bench.py` before running it.
+
+Among other steps, this script:
+
+- isolates the benchmark images in a separate folder
+- creates the masks and saves them separately
+
+## Precomputed Statistics for FID and Patchwise FID
+
+To precompute and save statistics for FID and patchwise FID, use the provided script:
+
+```bash
+python compute_stats.py
+```
+
+Update the paths at the beginning of `compute_stats.py` before running it.

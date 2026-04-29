@@ -7,6 +7,10 @@ build-backend = "setuptools.build_meta"
 name = "ding"
 description = "ding algorithm for fast training-free inpainting using pre-trained diffusion models."
 version = "0.0.0"
+authors = [
+    {name = "Yazid Janati", email = "yazid.janati@mbzuai.ac.ae"},
+    {name = "Badr Moufad", email = "badr.moufad@polytechnique.edu"},
+]
 
 dependencies = [
     "torch",
@@ -28,5 +32,5 @@ dependencies = [
     "pandas",
     "pytorch_fid",
     "sentencepiece",
-     "protobuf",
+    "protobuf",
 ]
