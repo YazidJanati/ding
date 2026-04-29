@@ -1,11 +1,15 @@
 # Efficient Zero-Shot Inpainting with Decoupled Diffusion Guidance
 
+[![arXiv](https://img.shields.io/badge/arXiv-2512.18365-b31b1b.svg)](https://arxiv.org/abs/2512.18365)
+[![Code](https://img.shields.io/badge/code-ding--editor-181717.svg?logo=github)](https://github.com/ahmedgh970/ding-editor)
+[![Project Page](https://img.shields.io/badge/project-page-2ea44f.svg)](https://ahmedgh970.github.io/ding-editor/)
+
 This repository contains the DING algorithm for fast, training-free image inpainting with pre-trained diffusion models.
 
 Paper: [Efficient Zero-Shot Inpainting with Decoupled Diffusion Guidance](https://arxiv.org/abs/2512.18365)
 
 
-**NOTE:** We have released a modular python package that extends this work to additional models and datasets, see the [project webpage](https://ahmedgh970.github.io/ding-editor/) and package [ding-editor](https://github.com/ahmedgh970/ding-editor).
+**NOTE:** We have released a modular python package that extends this work to additional models and datasets, see the [project webpage](https://ahmedgh970.github.io/ding-editor/) and the [ding-editor](https://github.com/ahmedgh970/ding-editor) package.
 
 
 ## Setup
@@ -23,7 +27,8 @@ Dependency details are available in [`pyproject.toml`](pyproject.toml).
 ```python
 from pathlib import Path
 
-REPO_PATH = Path("/path/to/repository")  # Replace with the absolute path to this repository.
+# Replace with the absolute path to this repository.
+REPO_PATH = Path("/path/to/repository")
 ```
 
 ## Downloading Models
